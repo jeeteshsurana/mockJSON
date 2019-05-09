@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "first_name": "Dael",
+    "last_name": "Gouge",
+    "email": "dgouge0@domainmarket.com",
+    "gender": "Female",
+    "avatar": "https://robohash.org/atqueexcepturivelit.bmp?size=50x50&set=set1",
+    "slogan": "maximize real-time e-markets",
+    "phone": "318-177-0395",
+    "credit_card": "4026911010124576",
+    "credit_card_type": "visa-electron",
+    "country": "United States",
+    "state": "Louisiana",
+    "city": "Monroe",
+    "street_address": "9 Becker Street",
+    "postal_code": "71208",
+    "longitude": "-92.0756",
+    "latitude": "32.4968",
+    "date": "11/12/2018",
+    "time": "2:35 PM",
+    "hex_color": "#254fab",
+    "des": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.\n\nCum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+    "words": "dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst",
+    "isbn": "613188419-6",
+    "image": "http://dummyimage.com/212x174.jpg/ff4444/ffffff",
+    "image_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIiSURBVBgZpcHfa81hHMDx9/l+n82x0zadyBabMFtKSS03XGxXUlMspqxcufGrcOMPQHHhR1v8B26Wxi7ccOlKLUlqTJvQ0H5gv8737DzP5/OxJ5RcyPJ6OTPjf7juCwOn93a0X/tSsoIZoIqpIiqYGmqKiaBmmAiiSl21XxwZmbg4eKPntmvf095XlS8k6/OsRGGxJH3AbVfylpS+LLBSmbeEZc7EuNLbwkqduPqOyJkpUSUIBoT5Z5Q/9mMSMFE0KCaKeI9Rg990mc3NWxEVIocZUS7JkVNB5p6wqmY9adU6zAfMB6SSkX19hTX0UFVoINIgRE5UiBJAwhSV6UfUbugizA6T5HchMkP52yhp4zFcQxdiSqSiRM7U+EFYmnpIdW0LkKLZZ3BLzH54zOotZ8g3HUINUk2JVIXIqQpRKI1S/nSfuqZ9WMggbQTvMXXownsWR26hPsOSOvJtR1BVIhe8J1oYv0l1/TaymVdoUKprWkAd9Q2dZDMvEF9h7uNzirsvka5aQ/CByJkoUb7YSShPQ5KQSyt8HR+irrGDUP5GpTRNUr+T5u7ruNomkjTFVImcqhIVNvbyi4YFZl/fpTT5kvL8JMUd56hvPczv1IzITbx9N3Dypu9REVQUEaF3Yz9ta4s8fZMw9Pks2XCKySBqiqmiSjTAMjd4o+cocJSfxu9t369e7mQzcv7gqbEHB/k7xx/Uy4R6OdB6fOwl/+A7Obk497M21x8AAAAASUVORK5CYII=",
+    "user_name": "dgouge0",
+    "car_brand": "Kia"
+  }
+]
