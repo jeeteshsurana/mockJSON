@@ -10,8 +10,8 @@
   <template name="ClassBaseRecyclerView" value="//after getting data it update the Side menu in recyclerView&#10;&#10;import android.os.Bundle&#10;import android.view.LayoutInflater&#10;import android.view.View&#10;import android.view.ViewGroup&#10;import $PACKAGE_NAME$.R&#10;import $PACKAGE_NAME$.base.BaseFragment&#10;&#10;class $FragmentName$Fragment : BaseFragment() {&#10;&#10;&#9;var mAdapter: $FragmentName$Adapter? = null&#10;&#9;private var mArrayList = ArrayList&lt;$ClassName$&gt;()&#10;&#10;    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {&#10;        return inflater.inflate(R.layout.fragment_$FragmentName$, container, false)&#10;    }&#10;&#10;&#10;&#9;override fun onActivityCreated(savedInstanceState: Bundle?) {&#10;&#9;&#9;super.onActivityCreated(savedInstanceState)&#10;&#9;&#9;init()&#10;&#9;}&#10;&#9;&#10;&#9;private fun init() {&#10;&#9;&#9;initRecyclerView()&#10;&#9;}&#10;&#10;&#9;private fun initRecyclerView() {&#10;&#9;&#9;val layoutManager = LinearLayoutManager(this)&#10;&#9;&#9;$rv$.layoutManager = layoutManager&#10;&#9;&#9;mAdapter = $FragmentName$Adapter(this, mArrayList, object : $FragmentName$Adapter.ProductClickListener {&#10;&#9;&#9;&#9;override fun itemClick(position: Int) {&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;})&#10;&#9;&#9;$rv$.adapter = mAdapter&#10;&#9;&#9;mAdapter!!.notifyDataSetChanged()&#10;&#9;}&#10;}" description="Fragment With RecyclerView" toReformat="true" toShortenFQNames="true">
     <variable name="PACKAGE_NAME" expression="kotlinPackageName()" defaultValue="" alwaysStopAt="false" />
     <variable name="FragmentName" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
-    <variable name="ClassName" expression="completeSmart()" defaultValue="String" alwaysStopAt="true" />
-    <variable name="rv" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ClassName" expression="complete()" defaultValue="String" alwaysStopAt="true" />
+    <variable name="rv" expression="complete()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="KOTLIN" value="true" />
     </context>
@@ -41,9 +41,9 @@
   <template name="ClassBaseFragmentRecyclerviewWithFilter" value="//after getting data it update the Side menu in recyclerView&#10;&#10;import android.os.Bundle&#10;import android.view.*&#10;import androidx.appcompat.widget.SearchView&#10;import androidx.core.view.MenuItemCompat&#10;import android.view.inputmethod.EditorInfo&#10;import $PACKAGE_NAME$.R&#10;import $PACKAGE_NAME$.base.BaseFragment&#10;import androidx.recyclerview.widget.LinearLayoutManager&#10;import com.justcodenow.reportingapp.util.Constant&#10;&#10;class $FragmentName$Fragment : BaseFragment() {&#10;&#10;&#9;var mAdapter: $FragmentName$Adapter? = null&#10;&#9;private var mArrayList = ArrayList&lt;$ClassName$&gt;()&#10;&#10;    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {&#10;        return inflater.inflate(R.layout.fragment_$FragmentLayout$, container, false)&#10;    }&#10;&#10;&#9;override fun onResume() {&#10;        super.onResume()&#10;        setHasOptionsMenu(true)&#10;    }&#10;&#9;&#10;&#9;override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {&#10;&#9;&#9;menu.clear()&#10;        activity!!.menuInflater.inflate(R.menu.search_menu, menu)&#10;        super.onCreateOptionsMenu(menu, inflater)&#10;        val search = menu.findItem(R.id.action_search)&#10;        val searchView = search.actionView as SearchView&#10;        searchView.imeOptions = EditorInfo.IME_ACTION_DONE&#10;        search(searchView)&#10;&#9;}&#10;&#9;&#10;&#9;private fun search(searchView: SearchView) {&#10;&#9;&#9;&#9;searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {&#10;&#9;&#9;&#9;&#9;override fun onQueryTextSubmit(query: String?): Boolean {&#10;&#9;&#9;&#9;&#9;&#9;if (mAdapter != null) {&#10;&#9;&#9;&#9;&#9;&#9;&#9;mAdapter!!.filter.filter(query)&#10;&#9;&#9;&#9;&#9;&#9;} else {&#10;&#9;&#9;&#9;&#9;&#9;&#9;showError(&quot;Data is not loaded&quot;)&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;return true&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#10;&#9;&#9;&#9;&#9;override fun onQueryTextChange(newText: String?): Boolean {&#10;&#9;&#9;&#9;&#9;&#9;if (mAdapter != null) {&#10;&#9;&#9;&#9;&#9;&#9;&#9;mAdapter!!.filter.filter(newText)&#10;&#9;&#9;&#9;&#9;&#9;} else {&#10;&#9;&#9;&#9;&#9;&#9;&#9;showError(&quot;Data is not loaded&quot;)&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;return true&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;})&#10;&#9;&#9;}&#10;&#9;&#10;&#9;override fun onActivityCreated(savedInstanceState: Bundle?) {&#10;&#9;&#9;super.onActivityCreated(savedInstanceState)&#10;&#9;&#9;init()&#10;&#9;}&#10;&#9;&#10;&#9;&#10;&#9;private fun init() {&#10;&#9;&#9;prepareData()&#10;&#9;&#9;initRecyclerView()&#10;&#9;}&#10;&#9;&#10;&#9;&#10;&#9;  private fun prepareData() {&#10;        mArrayList.clear()&#10;        for ((i, e) in Constant.DemoFirstName.withIndex()) {&#10;            val m$ClassName$ = $ClassName$()&#10;            m$ClassName$.firstName = Constant.DemoFirstName[i]&#10;            mArrayList.add(m$ClassName$)&#10;        }&#10;    }&#10;&#10;&#9;private fun initRecyclerView() {&#10;&#9;&#9;val layoutManager = LinearLayoutManager(context!!)&#10;&#9;&#9;&#10;&#9;&#9;$rv$.layoutManager = layoutManager&#10;&#9;&#9;&#10;&#9;&#9;mAdapter = $FragmentName$Adapter(context!!, mArrayList, object : $FragmentName$Adapter.ItemClickListener {&#10;&#9;&#9;&#9;override fun itemClick(position: Int) {&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;})&#10;&#9;&#9;&#10;&#9;&#9;$rv$.adapter = mAdapter&#10;&#9;&#9;&#10;&#9;&#9;mAdapter!!.notifyDataSetChanged()&#10;&#9;&#10;&#9;}&#10;}&#10;&#10;package $PACKAGE_NAME$&#10;&#10;import android.content.Context&#10;import android.view.LayoutInflater&#10;import android.view.View&#10;import android.view.ViewGroup&#10;import android.widget.Filter&#10;import android.widget.Filterable&#10;import androidx.appcompat.widget.AppCompatButton&#10;import androidx.recyclerview.widget.RecyclerView&#10;&#10;import $PACKAGE_NAME$.R&#10;&#10;/**&#10; * Created by Abhin.&#10; */&#10;class $FragmentName$Adapter(val mContext: Context, var mList: List&lt;$ClassName$&gt;, var mItemClickListener: ItemClickListener) : RecyclerView.Adapter&lt;$FragmentName$Adapter.$FragmentName$AdapterViewHolder&gt;(), Filterable {&#10;&#9;&#10;&#9;var mFilteredList = mList&#10;&#9;&#10;    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): $FragmentName$AdapterViewHolder {&#10;        val viewHolder = LayoutInflater.from(parent.context).inflate(R.layout.$layoutName$, parent, false)&#10;        return $FragmentName$AdapterViewHolder(viewHolder)&#10;    }&#10;&#10;    override fun getItemCount(): Int {&#10;        return mFilteredList.size&#10;    }&#10;&#10;    override fun onBindViewHolder(holder: $FragmentName$AdapterViewHolder, position: Int) {&#10;        val mData = mFilteredList[position]&#10;        holder.mName.text = mData&#10;        holder.itemView.setOnClickListener {&#10;            mItemClickListener.itemClick(position)&#10;        }&#10;    }&#10;&#10;    class $FragmentName$AdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {&#10;        val mName = itemView.findViewById&lt;AppCompatTextView&gt;(R.id.$layoutTextView$)!!&#10;    }&#10;&#10;    interface ItemClickListener {&#10;        fun itemClick(position: Int)&#10;    }&#10;&#9;&#10;&#9; override fun getFilter(): Filter {&#10;            return object : Filter() {&#10;                override fun performFiltering(charSequence: CharSequence): Filter.FilterResults {&#10;                    val charString = charSequence.toString()&#10;                    if (charString.isEmpty()) {&#10;                        mFilteredList = mList&#10;                    } else {&#10;                        val filteredList = ArrayList&lt;$ClassName$&gt;()&#10;                        for (filter in mList) {&#10;                            if (filter!!.toLowerCase().contains(charString)||filter!!.toLowerCase().contains(charString)) {&#10;                                filteredList.add(filter)&#10;                            }&#10;                        }&#10;                        mFilteredList = filteredList&#10;                    }&#10;                    val filterResults = Filter.FilterResults()&#10;                    filterResults.values = mFilteredList&#10;                    return filterResults&#10;                }&#10;&#10;                override fun publishResults(charSequence: CharSequence, filterResults: Filter.FilterResults) {&#10;                    mFilteredList = filterResults.values as ArrayList&lt;$ClassName$&gt;&#10;                    notifyDataSetChanged()&#10;                }&#10;            }&#10;    }&#10;}" description="BaseFragment RecyclerView With Filter" toReformat="false" toShortenFQNames="false">
     <variable name="PACKAGE_NAME" expression="kotlinPackageName()" defaultValue="" alwaysStopAt="true" />
     <variable name="FragmentName" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
-    <variable name="ClassName" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
-    <variable name="FragmentLayout" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
-    <variable name="rv" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ClassName" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="FragmentLayout" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="rv" expression="complete()" defaultValue="" alwaysStopAt="true" />
     <variable name="layoutName" expression="complete()" defaultValue="" alwaysStopAt="true" />
     <variable name="layoutTextView" expression="complete()" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -58,8 +58,8 @@
     </context>
   </template>
   <template name="AddReplace" value="addReplaceFragment(R.id.$fl_container$,$FragmentNmae$(),false,true,null)" description="only replace with back stack" toReformat="true" toShortenFQNames="true">
-    <variable name="fl_container" expression="completeSmart()" defaultValue="fl_container" alwaysStopAt="true" />
-    <variable name="FragmentNmae" expression="completeSmart()" defaultValue="Fragment" alwaysStopAt="true" />
+    <variable name="fl_container" expression="complete()" defaultValue="fl_container" alwaysStopAt="true" />
+    <variable name="FragmentNmae" expression="complete()" defaultValue="Fragment" alwaysStopAt="true" />
     <context>
       <option name="KOTLIN" value="true" />
     </context>
@@ -462,6 +462,27 @@
     </context>
   </template>
   <template name="ThreadSplash" value="Handler().postDelayed(Runnable {&#10;        //code here    &#10;},3000)" description="Thread" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="GradleImageCropper" value="//cropper&#10;implementation 'com.fenchtose.nocropper:nocropper:0.3.0'" description="image crop" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="GROOVY" value="true" />
+    </context>
+  </template>
+  <template name="GradleGson" value="//Gson&#10;implementation 'com.google.code.gson:gson:2.8.5'" description="GSON" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="GROOVY" value="true" />
+    </context>
+  </template>
+  <template name="DisplayHeightWidth" value="val displayMetrics = DisplayMetrics()&#10;activity!!.windowManager.defaultDisplay.getMetrics(displayMetrics)&#10;val height = displayMetrics.heightPixels&#10;val width = displayMetrics.widthPixels" description="get the display height or width" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="GetBitmapSize" value="Log.d(Constant.Tag, &quot;mBitmapSize--&gt;${$resource$.byteCount / 1024}&quot;)" description="get Bitmap Size in Kilobytes" toReformat="false" toShortenFQNames="true">
+    <variable name="resource" expression="complete()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="KOTLIN" value="true" />
     </context>
