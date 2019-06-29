@@ -487,4 +487,39 @@
       <option name="KOTLIN" value="true" />
     </context>
   </template>
+  <template name="LayoutAutoScaleImageView" value="&lt;androidx.constraintlayout.widget.ConstraintLayout&#10;    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&#10;    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;&#10;    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&#10;    android:id=&quot;@+id/cl_main&quot;&#10;    android:layout_width=&quot;match_parent&quot;&#10;    android:layout_height=&quot;wrap_content&quot;&#10;    android:layout_margin=&quot;@dimen/dp_3&quot;&gt;&#10;&#10;   &lt;androidx.appcompat.widget.AppCompatImageView&#10;        android:id=&quot;@+id/img_$gallery$&quot;&#10;        android:layout_width=&quot;match_parent&quot;&#10;        android:layout_height=&quot;0dp&quot;&#10;        android:scaleType=&quot;centerCrop&quot;&#10;        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;&#10;        app:layout_constraintDimensionRatio=&quot;H,1:1&quot;&#10;        app:layout_constraintLeft_toLeftOf=&quot;parent&quot;&#10;        app:layout_constraintRight_toRightOf=&quot;parent&quot;&#10;        app:layout_constraintTop_toTopOf=&quot;parent&quot;&#10;        tools:src=&quot;@tools:sample/avatars&quot; /&gt;&#10;&#10;&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;" description="Image View Auto Scale according to display size" toReformat="true" toShortenFQNames="true">
+    <variable name="gallery" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="LayoutAutoScaleImageViewOnly" value="&lt;androidx.appcompat.widget.AppCompatImageView&#10;     android:id=&quot;@+id/img_$gallery$&quot;&#10;     android:layout_width=&quot;match_parent&quot;&#10;     android:layout_height=&quot;0dp&quot;&#10;     android:scaleType=&quot;centerCrop&quot;&#10;     app:layout_constraintBottom_toBottomOf=&quot;parent&quot;&#10;     app:layout_constraintDimensionRatio=&quot;H,1:1&quot;&#10;     app:layout_constraintLeft_toLeftOf=&quot;parent&quot;&#10;     app:layout_constraintRight_toRightOf=&quot;parent&quot;&#10;     app:layout_constraintTop_toTopOf=&quot;parent&quot;&#10;     tools:src=&quot;@tools:sample/avatars&quot; /&gt;" description="only Image View Auto Scale according to display size" toReformat="true" toShortenFQNames="true">
+    <variable name="gallery" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="DrawableRectangle" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&#10;       android:shape=&quot;rectangle&quot;&gt;&#10;    &lt;solid android:color=&quot;#FFFFFF&quot;/&gt;&#10;    &lt;stroke&#10;        android:width=&quot;3dp&quot;&#10;        android:color=&quot;#0FECFF&quot;/&gt;&#10;    &lt;padding&#10;        android:bottom=&quot;5dp&quot;&#10;        android:left=&quot;5dp&quot;&#10;        android:right=&quot;5dp&quot;&#10;        android:top=&quot;5dp&quot;/&gt;&#10;    &lt;corners&#10;        android:bottomLeftRadius=&quot;7dp&quot;&#10;        android:bottomRightRadius=&quot;7dp&quot;&#10;        android:topLeftRadius=&quot;7dp&quot;&#10;        android:topRightRadius=&quot;7dp&quot;/&gt;&#10;&lt;/shape&gt;" description="Rectangle Drawable" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="CameraIntent" value="private var mCameraImageUri: Uri? = null&#10;private val REQUEST_CAMERA = 0&#10;private var imagePath: String? = null&#10;&#10;private fun cameraIntent() {&#10;    val values = ContentValues()&#10;    values.put( &quot;title&quot;, System.currentTimeMillis().toString() + resources.getString(R.string.app_name) + &quot;image&quot;)&#10;    mCameraImageUri = activity!!.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)&#10;    val intentCamera = Intent(&quot;android.media.action.IMAGE_CAPTURE&quot;)&#10;    intentCamera.putExtra( &quot;output&quot;, mCameraImageUri)&#10;    startActivityForResult(intentCamera, REQUEST_CAMERA)&#10;}&#10;&#10;/**&#10; * getting result and set the arrayList and call adapter&#10; */&#10;@SuppressLint(&quot;NewApi&quot;)&#10;override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {&#10;    super.onActivityResult(requestCode, resultCode, data)&#10;    if (requestCode == REQUEST_CAMERA) run {&#10;        if (mCameraImageUri != null) {&#10;            //                Glide.with(activity!!).load(mCameraImageUri).apply(RequestOptions.circleCropTransform().error(R.mipmap.ic_launcher_round)).into(img_UserProfile_ReportList_UpdateFragment)&#10;            try {&#10;                imagePath = PathUtil.getPath(context!!, mCameraImageUri!!)&#10;                Log.d(Constant.Tag, &quot;camera imagePath --&gt;$imagePath&quot;)&#10;            } catch (e: URISyntaxException) {&#10;                e.printStackTrace()&#10;            }&#10;        }&#10;    }&#10;}&#10;" description="open the camera" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="EventBusinit" value="override fun onStart() {&#10;    super.onStart()&#10;    EventBus.getDefault().register(this)&#10;}&#10;&#10;override fun onStop() {&#10;    super.onStop()&#10;    EventBus.getDefault().unregister(this)&#10;}&#10;&#10;@Subscribe(threadMode = ThreadMode.MAIN)&#10;fun on$Caption$Event(event: $CaptionEvent$) {&#10;    //code here&#10;}" description="init the EventBus" toReformat="false" toShortenFQNames="true">
+    <variable name="Caption" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="CaptionEvent" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="EventBusImplement" value="EventBus.getDefault().post($MessageEvent$())" description="init the EventBus" toReformat="false" toShortenFQNames="true">
+    <variable name="MessageEvent" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
 </templateSet>
