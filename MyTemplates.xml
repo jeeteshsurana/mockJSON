@@ -522,4 +522,72 @@
       <option name="KOTLIN" value="true" />
     </context>
   </template>
+  <template name="ConstraintLayoutTopBottom" value="app:layout_constraintBottom_toBottomOf=&quot;parent&quot;&#10;app:layout_constraintEnd_toEndOf=&quot;parent&quot;&#10;app:layout_constraintStart_toStartOf=&quot;parent&quot;&#10;app:layout_constraintTop_toBottomOf=&quot;@id/$tb_web_view$&quot;" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="tb_web_view" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="ConstraintLayoutTopBottomOnly" value="app:layout_constraintEnd_toEndOf=&quot;parent&quot;&#10;app:layout_constraintStart_toStartOf=&quot;parent&quot;&#10;app:layout_constraintTop_toBottomOf=&quot;@id/$tb_web_view$&quot;" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="tb_web_view" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="onClick" value="fun onClick(view: View) {&#10;    val activity=view.getParentActivity()!!&#10;    when (view.id) {&#10;        &#10;    }&#10;}" description="MVVM onclick" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="Inflater" value="return inflater.inflate(R.layout.$bottom_sheet_web_view_browser$, container, false)" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="bottom_sheet_web_view_browser" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="ContextCompatGetColor" value="ContextCompat.getColor(context!!,R.color.$transparent$)" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="transparent" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="ImageView" value="&lt;androidx.appcompat.widget.AppCompatImageView&#10;        android:layout_width=&quot;wrap_content&quot;&#10;        android:layout_height=&quot;wrap_content&quot;&#10;        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;&#10;        app:layout_constraintStart_toStartOf=&quot;parent&quot;&#10;        app:layout_constraintTop_toTopOf=&quot;parent&quot;&#10;        app:srcCompat=&quot;$enters$&quot; /&gt;" description="common ImageView" toReformat="false" toShortenFQNames="true">
+    <variable name="enters" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="resources.getString" value="resources.getString(R.string.$tb_settings$)" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="tb_settings" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="TextView" value="&lt;androidx.appcompat.widget.AppCompatTextView&#10;android:id=&quot;@+id/txt_$name$&quot;&#10;android:layout_width=&quot;wrap_content&quot;&#10;android:layout_height=&quot;wrap_content&quot;&#10;android:text=&quot;$name$&quot;&#10;app:layout_constraintBottom_toBottomOf=&quot;parent&quot;&#10;app:layout_constraintLeft_toLeftOf=&quot;parent&quot;&#10;app:layout_constraintRight_toRightOf=&quot;parent&quot;&#10;app:layout_constraintTop_toTopOf=&quot;parent&quot;/&gt;" description="textView" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="EditText" value="&lt;androidx.appcompat.widget.AppCompatEditText&#10;android:id=&quot;@+id/edt_$name$&quot;&#10;android:layout_width=&quot;wrap_content&quot;&#10;android:layout_height=&quot;wrap_content&quot;&#10;android:hint=&quot;@string/$app_name$&quot;&#10;app:layout_constraintBottom_toBottomOf=&quot;parent&quot;&#10;app:layout_constraintLeft_toLeftOf=&quot;parent&quot;&#10;app:layout_constraintRight_toRightOf=&quot;parent&quot;&#10;app:layout_constraintTop_toTopOf=&quot;parent&quot;/&gt;" description="EdittextView" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="app_name" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="Button" value="&lt;androidx.appcompat.widget.AppCompatButton&#10;android:id=&quot;@+id/btn_$name$&quot;&#10;android:layout_width=&quot;wrap_content&quot;&#10;android:layout_height=&quot;wrap_content&quot;&#10;android:hint=&quot;@string/$app_name$&quot;&#10;app:layout_constraintBottom_toBottomOf=&quot;parent&quot;&#10;app:layout_constraintLeft_toLeftOf=&quot;parent&quot;&#10;app:layout_constraintRight_toRightOf=&quot;parent&quot;&#10;app:layout_constraintTop_toTopOf=&quot;parent&quot;/&gt;" description="EdittextView" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="app_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="View" value="&lt;View&#10;            android:id=&quot;@+id/$divider$&quot;&#10;            android:layout_width=&quot;match_parent&quot;&#10;            android:layout_height=&quot;1dp&quot;&#10;            android:background=&quot;@color/$side_menu_divider$&quot;&#10;            app:layout_constraintBottom_toBottomOf=&quot;parent&quot;&#10;            app:layout_constraintEnd_toEndOf=&quot;parent&quot;&#10;            app:layout_constraintStart_toStartOf=&quot;parent&quot; /&gt;" description="View Divider" toReformat="false" toShortenFQNames="true">
+    <variable name="divider" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="side_menu_divider" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
 </templateSet>
