@@ -306,7 +306,7 @@
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="SplashActivity" value=" startActivity(Intent(this@$SplashScreen$, $MainActivity$::class.java))&#10; this@$SplashScreen$.finish()" description="Transfer Screen" toReformat="false" toShortenFQNames="true">
+  <template name="StartActivity" value=" startActivity(Intent(this@$SplashScreen$, $MainActivity$::class.java))&#10; this@$SplashScreen$.finish()" description="Transfer Screen" toReformat="false" toShortenFQNames="true">
     <variable name="SplashScreen" expression="complete()" defaultValue="" alwaysStopAt="true" />
     <variable name="MainActivity" expression="complete()" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -371,6 +371,7 @@
     <variable name="ClassObject" expression="complete()" defaultValue="" alwaysStopAt="true" />
     <variable name="ModelClass" expression="complete()" defaultValue="" alwaysStopAt="true" />
     <context>
+      <option name="JSON" value="true" />
       <option name="KOTLIN" value="true" />
     </context>
   </template>
@@ -588,6 +589,99 @@
     <variable name="side_menu_divider" expression="complete()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="initObserver" value="override fun onCreate(savedInstanceState: Bundle?) {&#10;    super.onCreate(savedInstanceState)&#10;    initObserver()&#10;}&#10;&#10;private fun initObserver() {&#10;    &#10;}" description="Observer" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="isProgress" value="        $mSettings$.isProgress.observe(this, Observer {&#10;            if (it != null &amp;&amp; it) {&#10;                //show Loader&#10;            } else {&#10;                //hide Loader&#10;            }&#10;        })" description="Progress" toReformat="false" toShortenFQNames="true">
+    <variable name="mSettings" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="loadFragment" value=" private fun loadFragment(resultFragment: Fragment, activity: AppCompatActivity) {&#10;        val classname = resultFragment::class.java.name.toString()&#10;        val mFrag = activity.supportFragmentManager.findFragmentByTag(resultFragment::class.java.simpleName)&#10;        if (mFrag != null &amp;&amp; mFrag::class.java.name.toString() == classname) {&#10;            activity.supportFragmentManager.popBackStack(mFrag.tag, 0)&#10;        }&#10;    }" description="loadFragment" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="StartActivityFragment" value="startActivity(Intent(activity!!, $MainActivity$::class.java))&#10;activity!!.finish()" description="Transfer Screen" toReformat="false" toShortenFQNames="true">
+    <variable name="MainActivity" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="PaddingAllSideStringXML" value="&lt;item name=&quot;android:paddingStart&quot;&gt;$dimen$&lt;/item&gt;&#10;&lt;item name=&quot;android:paddingEnd&quot;&gt;$dimen$&lt;/item&gt;&#10;&lt;item name=&quot;android:paddingTop&quot;&gt;$dimen$&lt;/item&gt;&#10;&lt;item name=&quot;android:paddingBottom&quot;&gt;$dimen$&lt;/item&gt;" description="Padding All Side In String XML" toReformat="false" toShortenFQNames="true">
+    <variable name="dimen" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="EventBusInitStartStop" value="override fun onStart() {&#10;    super.onStart()&#10;    EventBus.getDefault().register(this)&#10;}&#10;&#10;override fun onStop() {&#10;    super.onStop()&#10;    EventBus.getDefault().unregister(this)&#10;}" description="init the EventBus Start Stop" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="IdCL" value="android:id=&quot;@+id/cl_$item$&quot;" description="Constraint Layout" toReformat="false" toShortenFQNames="true">
+    <variable name="item" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="initRecyclerView" value="private fun initRecyclerView() {&#10;&#9;&#9;val layoutManager = LinearLayoutManager(context!!)&#10;&#9;&#9;$RecyclerView$.layoutManager = layoutManager&#10;&#9;&#9;mAdapter = $AdapterName$(context!!, $mArrayList$, object : $AdapterName$.ItemClickListener {&#10;&#9;&#9;&#9;override fun itemClick(position: Int) {&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;})&#10;&#9;&#9;$RecyclerView$.adapter = mAdapter&#10;&#9;}" description="Fragment With RecyclerView Adapter" toReformat="true" toShortenFQNames="true">
+    <variable name="RecyclerView" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="AdapterName" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="mArrayList" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="initRecyclerViewWithoutContext" value="private fun initRecyclerView() {&#10;&#9;&#9;val layoutManager = LinearLayoutManager(context!!)&#10;&#9;&#9;$RecyclerView$.layoutManager = layoutManager&#10;&#9;&#9;mAdapter = $AdapterName$($mArrayList$, object : $AdapterName$.ItemClickListener {&#10;&#9;&#9;&#9;override fun itemClick(position: Int) {&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;})&#10;&#9;&#9;$RecyclerView$.adapter = mAdapter&#10;&#9;}" description="Fragment With RecyclerView Adapter" toReformat="true" toShortenFQNames="true">
+    <variable name="RecyclerView" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="AdapterName" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="mArrayList" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="initOnCreateViewModel" value="private val mViewModel: $NotificationViewModel$ by viewModel()&#10;private var mBinding: $NotificationViewModelBinding$ ? = null&#10;&#10;override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {&#10;    mBinding = DataBindingUtil.inflate(inflater, R.layout.$fragment_notification$, container, false)&#10;    mBinding?.lifecycleOwner = this // view model attach with lifecycle&#10;    mBinding?.$mViewModel$ = mViewModel //set up view model&#10;    return mBinding!!.root&#10;}" description="Observer" toReformat="false" toShortenFQNames="true">
+    <variable name="NotificationViewModel" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="NotificationViewModelBinding" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="fragment_notification" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="mViewModel" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="Observer" value="$mViewModel$.$mResponse$.observe(this, Observer {&#10;&#10;})" description="Observer" toReformat="false" toShortenFQNames="true">
+    <variable name="mViewModel" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="mResponse" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="Instance" value="companion object {&#10;    val logTag = $Test1Fragment$::class.java.simpleName&#10;    fun newInstance(): $Test1Fragment$ {&#10;        val m$Test1Fragment$ = $Test1Fragment$()&#10;        val args = Bundle().apply { }&#10;        return m$Test1Fragment$ .apply { arguments = args } &#10;    }&#10;}" description="New Instance" toReformat="false" toShortenFQNames="true">
+    <variable name="Test1Fragment" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="LogE" value="Log.e($CommonTAG$,&quot;$test$() --&gt; $message$&quot;)" description="Log.e" toReformat="false" toShortenFQNames="true">
+    <variable name="CommonTAG" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="test" expression="kotlinFunctionName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="message" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="LogD" value="Log.d($CommonTAG$,&quot;$test$() --&gt; $message$&quot;)" description="Log.d" toReformat="false" toShortenFQNames="true">
+    <variable name="CommonTAG" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="test" expression="kotlinFunctionName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="message" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
     </context>
   </template>
 </templateSet>
