@@ -1,0 +1,48 @@
+<templateSet group="JavaTemplates">
+  <template name="getResources()" value="getResources().getString(R.string.$dummy_country$)" description="Resources" toReformat="false" toShortenFQNames="true">
+    <variable name="dummy_country" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="getResources();" value="getResources().getString(R.string.$dummy_country$);" description="Resources" toReformat="false" toShortenFQNames="true">
+    <variable name="dummy_country" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="LogEGson" value=" Log.e(&quot;Tag&quot;, &quot;$Items$--&gt; &quot; + new Gson().toJson($requests$));" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="Items" expression="methodName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="requests" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="LogE" value=" Log.e(&quot;Tag&quot;, &quot;$Items$()--&gt; &quot; + $requests$);" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="Items" expression="methodName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="requests" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="RecyclerView" value="LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);&#10;$rvInvoice$.setLayoutManager(linearLayoutManager);&#10;$mInvoiceAddedItemsAdapter$ = new $InvoiceAddedItemsAdapter$(getContext(), mArrayList, new $InvoiceAddedItemsAdapter$.AdapterItemClick() {&#10;&#10;});&#10;$rvInvoice$.setAdapter(invoiceAddedItemsAdapter);" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="rvInvoice" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="mInvoiceAddedItemsAdapter" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="InvoiceAddedItemsAdapter" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="heightInStyleXML" value="&lt;item name=&quot;android:layout_width&quot;&gt;wrap_content&lt;/item&gt;&#10;&lt;item name=&quot;android:layout_height&quot;&gt;wrap_content&lt;/item&gt;" description="wrap_content layout_height layout_width" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="heightInStyleXML match_parent" value="&lt;item name=&quot;android:layout_width&quot;&gt;match_parent&lt;/item&gt;&#10;&lt;item name=&quot;android:layout_height&quot;&gt;match_parent&lt;/item&gt;" description="match_parent layout_height layout_width" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="XML" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -684,4 +684,24 @@
       <option name="KOTLIN" value="true" />
     </context>
   </template>
+  <template name="contentResolver" value="context!!.contentResolver.openFileDescriptor($contentUri$, $FILE_OPEN_READ_MODE$).use {&#10;&#10;}" description="content Resolver Open File Descriptor" toReformat="false" toShortenFQNames="true">
+    <variable name="contentUri" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="FILE_OPEN_READ_MODE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
+  <template name="MarginAllSideStringXML" value="&lt;item name=&quot;android:layout_marginStart&quot;&gt;$dimen$&lt;/item&gt;&#10;&lt;item name=&quot;android:layout_marginEnd&quot;&gt;$dimen$&lt;/item&gt;&#10;&lt;item name=&quot;android:layout_marginTop&quot;&gt;$dimen$&lt;/item&gt;&#10;&lt;item name=&quot;android:layout_marginBottom&quot;&gt;$dimen$&lt;/item&gt;" description="Padding All Side In String XML" toReformat="false" toShortenFQNames="true">
+    <variable name="dimen" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="LogETag" value="Log.e(&quot;Tag&quot;,&quot;$test$() --&gt; $message$&quot;)" description="Log.e" toReformat="false" toShortenFQNames="true">
+    <variable name="test" expression="kotlinFunctionName()" defaultValue="" alwaysStopAt="false" />
+    <variable name="message" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
 </templateSet>
